@@ -1,0 +1,4 @@
+# external requirements
+pandas
+notebook
+ydata-profilling

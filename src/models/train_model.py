@@ -1,14 +1,18 @@
 import sys,os
 sys.path.append(os.getcwd())
+import joblib
 import pandas as pd
-import src.features.build_features as features
-import src.models.models as ml_models
-import src.models as models
 from sklearn.pipeline import Pipeline
 from sklearn.model_selection import GridSearchCV
+
+from config import final_model_name
+
+import src.features.feature_pipe as features
+import src.models.models as ml_models
+import src.models as models
 from src.utils import utils
 from src.visualization import explainability, model_evaluation
-import joblib
+
 
 model_type = 'regression'
 
@@ -36,5 +40,5 @@ predict = cv_result.predict(X)
 model_evaluation.evaluate_model(model_type=model_type, y_true=y, y_pred=predict)
 
 # Save Model
-model_name = 'last_model'
-joblib.dump(cv_result, f'models\{model_name}')
+
+joblib.dump(cv_result, f'models\{final_model_name}.pickle')

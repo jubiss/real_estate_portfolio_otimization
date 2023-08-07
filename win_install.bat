@@ -9,12 +9,12 @@ set /p add_dashboard="Do you want to add a dashboard to the repo? (y/n): "
 if /i "%add_dashboard%"=="y" (
 
     echo Config to use dashboard
-    (for /f "delims=" %%i in ('type .env') do (
+    (for /f "delims=" %%i in ('type config.py') do (
         echo %%i | findstr /i /c:"USE_DASHBOARD=False" > nul && (
             echo USE_DASHBOARD=True
         ) || echo %%i
-    )) > temp.env
-    move /y temp.env .env
+    )) > temp_config.py
+    move /y temp_config.py config.py
 
     rem Add dashboard-related commands here, if needed
 

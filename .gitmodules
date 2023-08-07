@@ -1,0 +1,6 @@
+[submodule "dash_custom_components"]
+	path = dash_custom_components
+	url = https://github.com/jubiss/dash_custom_components.git
+[submodule "dash_basic_repository/dash_custom_components"]
+	path = dash_basic_repository/dash_custom_components
+	url = https://github.com/jubiss/dash_custom_components.git
